@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "Select one, I'm testing case in bash here"
+echo "1) bash"
+echo "2) perl"
+echo "3) python"
+echo "4) c++"
+echo "5) I do not know !"
+
+read case
+case $case in
+  1) echo "you chose bash";;
+  2) echo "you chose perl";;
+  3) echo "you chose python";;
+  4) echo "you chose c++";;
+  5) exit
+esac

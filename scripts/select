@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PS3="choose one word"
+
+select word in "linux" "bash" "scripting" "tutorial"
+do
+  echo "You chose $word"
+  break
+
+done

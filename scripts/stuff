@@ -1,0 +1,56 @@
+#!/bin/bash
+
+STRING="HELLO WORLD!!"
+
+echo $STRING
+
+function bash {
+
+  local STRING="HELLO WORLD FROM THE LOCALS!!!"
+  echo $STRING
+}
+bash
+echo $STRING
+
+#using predefined variables to access passed variables
+echo $1 $2 $3 ' -> echo $1 $2 $3'
+
+# another way to access bash command line passed variables
+args=("$@")
+
+echo ${args[0]} 'this is the first argument that you passed'
+echo ${args[1]} 'this is the second argument that you passed'
+echo ${args[2]} 'this is the third argument that you passed'
+
+# to print all arguments
+echo $@
+# print number of arguments passed via command line as
+echo $#
+
+#execute shell scripts with and without backticks (this works only with backticks)
+echo `uname -v`
+echo uname -v
+
+#reading from command line via user interaction
+echo -e "Please enter a word:"
+read word
+echo "The word you entered is $word."
+
+echo -e "Please enter 2 words"
+read word1 word2
+echo "The words you entered are \"$word1\" and \"$word2\"."
+
+echo -e "How do you feel about bash scripting?"
+read
+echo "You said: $REPLY, I am glad to hear your thoughts!"
+
+echo -e "Enter your favourite colours."
+read -a colours
+echo "Your favorite colours are ${colours[0]}, ${colours[1]} and ${colours[2]}:-"
+
+# declare and print array elements
+ARRAY=('Debian Linux' 'Redhat linux' Ubuntu linux)
+ELEMENTS=${#ARRAY[@]}
+for ((i=0;i<$ELEMENTS;i++)); do
+  echo ${ARRAY[$i]}
+done
